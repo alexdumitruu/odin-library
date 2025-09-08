@@ -3,3 +3,23 @@
     box-sizing: border-box;
 }
 
+.book-display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.book-author {
+    color: rgb(23, 144, 103);
+}
+
+.book-name {
+    color:rgb(223, 152, 60);
+}

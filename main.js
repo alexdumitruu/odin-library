@@ -22,8 +22,27 @@ function displayBooks() {
     for(let i = 0; i < myLibrary.length; i++)
     {
         let card = document.createElement('div');
-        card.classList.add('.card');
-        
+        card.classList.add('card');
+        let bookName = document.createElement('h3');
+        let bookAuthor = document.createElement('h3');
+
+        bookName.classList.add("book-name");
+        bookAuthor.classList.add("book-author");
+
+        bookName.textContent = myLibrary[i].name;
+        bookAuthor.textContent = "by " + myLibrary[i].author;
+
+        card.appendChild(bookName);
+        card.appendChild(bookAuthor);
+
+        display.appendChild(card);
     }
 }
 
+addBookToLibrary("To Kill a Mockingbird", "Harper Lee");
+addBookToLibrary("Pride and Prejudice", "Jane Austen");
+addBookToLibrary("The Great Gatsby", "F. Scott Fitzgerald");
+addBookToLibrary("Moby-Dick", "Herman Melville");
+addBookToLibrary("War and Peace", "Leo Tolstoy");
+
+displayBooks();

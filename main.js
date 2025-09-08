@@ -1,4 +1,6 @@
 // console.log('Hello World!');
+const display = document.querySelector('.book-display');
+
 
 const myLibrary = [];
 
@@ -16,5 +18,12 @@ function addBookToLibrary(name, author) {
 // addBookToLibrary("Alex", "Dumitru");
 // console.log(myLibrary);
 
-
+function displayBooks() {
+    for(let i = 0; i < myLibrary.length; i++)
+    {
+        let card = document.createElement('div');
+        card.classList.add('.card');
+        
+    }
+}
 

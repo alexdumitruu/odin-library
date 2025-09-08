@@ -10,10 +10,17 @@
     <div class="book-display">
         
     </div>
-    <form class="form">
-        
+    <form class="form" method="post">
+        <div>
+            <label for="book-name">BOOK NAME</label>
+            <input type="text" id="book-name" placeholder="Game of Thrones..." required name="bookName">
+        </div>
+        <div>
+            <label for="author">AUTHOR</label>
+            <input type="text" id="author" placeholder="Game of Thrones..." required name="bookAuthor">
+        </div>
     </form>
-    <button type="submit"></button>
+    <button type="submit">Add Book</button>
     <script src="/main.js"></script>
 </body>
 </html>

@@ -25,17 +25,31 @@ function displayBooks() {
     {
         let card = document.createElement('div');
         card.classList.add('card');
+        card.dataset.id = myLibrary[i].id;
+
         let bookName = document.createElement('h3');
         let bookAuthor = document.createElement('h3');
+        let space = document.createElement('br');
+        let removeButton = document.createElement('button');
 
         bookName.classList.add("book-name");
         bookAuthor.classList.add("book-author");
+        removeButton.classList.add("remove-button");
 
         bookName.textContent = myLibrary[i].name;
         bookAuthor.textContent = "by " + myLibrary[i].author;
+        removeButton.textContent = "Remove"
+
+        removeButton.addEventListener("click", () => {
+            const index = myLibrary.findIndex(book => card.dataset.id === book.id);
+            myLibrary.splice(index, 1);
+            displayBooks();
+        });
 
         card.appendChild(bookName);
         card.appendChild(bookAuthor);
+        card.appendChild(space);
+        card.appendChild(removeButton);
 
         display.appendChild(card);
     }
@@ -68,3 +82,4 @@ form.addEventListener('submit', (e) =>
     displayBooks();
     form.reset();
 })
+

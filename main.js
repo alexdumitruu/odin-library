@@ -8,6 +8,7 @@ function Book(name, author) {
     this.name = name;
     this.author = author;
     this.id = crypto.randomUUID();
+    this.read = false;
 }
 
 function addBookToLibrary(name, author) {
@@ -31,14 +32,18 @@ function displayBooks() {
         let bookAuthor = document.createElement('h3');
         let space = document.createElement('br');
         let removeButton = document.createElement('button');
+        let readStatus = document.createElement('button');
 
         bookName.classList.add("book-name");
         bookAuthor.classList.add("book-author");
         removeButton.classList.add("remove-button");
+        readStatus.classList.add("read-status");
 
         bookName.textContent = myLibrary[i].name;
         bookAuthor.textContent = "by " + myLibrary[i].author;
-        removeButton.textContent = "Remove"
+        removeButton.textContent = "Remove";
+        readStatus.textContent = 'Read';
+        readStatus.style.backgroundColor = myLibrary[i].read ? 'green' : 'red';
 
         removeButton.addEventListener("click", () => {
             const index = myLibrary.findIndex(book => card.dataset.id === book.id);
@@ -46,9 +51,16 @@ function displayBooks() {
             displayBooks();
         });
 
+        readStatus.addEventListener("click", () => {
+            const index = myLibrary.findIndex(book => book.id === card.dataset.id);
+            myLibrary[index].read = !myLibrary[index].read; 
+            displayBooks(); 
+        })
+        
         card.appendChild(bookName);
         card.appendChild(bookAuthor);
         card.appendChild(space);
+        card.appendChild(readStatus);
         card.appendChild(removeButton);
 
         display.appendChild(card);
